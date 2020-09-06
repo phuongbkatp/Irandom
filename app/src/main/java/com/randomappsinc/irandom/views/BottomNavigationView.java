@@ -1,6 +1,7 @@
 package com.randomappsinc.irandom.views;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.AttributeSet;
 import android.widget.FrameLayout;
 import android.widget.TextView;
@@ -8,6 +9,8 @@ import android.widget.TextView;
 import androidx.annotation.IdRes;
 
 import com.randomappsinc.irandom.R;
+import com.randomappsinc.irandom.activities.MainActivity;
+import com.randomappsinc.irandom.home.HomeActivity;
 
 import butterknife.BindColor;
 import butterknife.BindView;
@@ -36,6 +39,7 @@ public class BottomNavigationView extends FrameLayout {
     private Listener listener;
     private TextView currentlySelected;
     private boolean isAddSheetExpanded = false;
+    private Context mContext;
 
     public BottomNavigationView(Context context) {
         this(context, null, 0);
@@ -52,6 +56,7 @@ public class BottomNavigationView extends FrameLayout {
         currentlySelected = homeButton;
         homeButton.setTextColor(blue);
         settingsButton.setTextColor(itemColor);
+        mContext = context;
     }
 
     public void setCurrentlySelected(@IdRes int currentlySelected) {
@@ -84,12 +89,7 @@ public class BottomNavigationView extends FrameLayout {
 
     @OnClick(R.id.add)
     public void onAddClicked() {
-        if (isAddSheetExpanded) {
-            listener.onAddOptionsContracted();
-        } else {
-            listener.onAddOptionsExpanded();
-        }
-        isAddSheetExpanded = !isAddSheetExpanded;
+        mContext.startActivity(new Intent(mContext, MainActivity.class));
     }
 
     public void setIsAddSheetExpanded(boolean isExpanded) {
