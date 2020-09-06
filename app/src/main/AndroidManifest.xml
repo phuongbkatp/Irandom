@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:installLocation="auto"
+    package="com.randomappsinc.irandom"
+    >
+
+    <uses-feature android:name="android.hardware.microphone"/>
+    <uses-feature android:name="android.hardware.camera"/>
+
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="com.android.vending.BILLING"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+
+    <application
+        tools:replace="android:label"
+        android:name="com.randomappsinc.irandom.init.MyApplication"
+        android:fullBackupContent="true"
+        android:label="@string/app_name"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:theme="@style/AppTheme"
+        >
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.randomappsinc.irandom.provider"
+            android:exported="false"
+            android:grantUriPermissions="true"
+            >
+
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths"
+                />
+        </provider>
+
+        <activity
+            android:name="com.randomappsinc.irandom.init.SplashActivity"
+            android:theme="@style/SplashTheme"
+            >
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.randomappsinc.irandom.home.HomeActivity"
+            android:configChanges="orientation|screenSize"
+            android:windowSoftInputMode="stateAlwaysHidden"
+            />
+
+        <activity
+            android:name="com.randomappsinc.irandom.importdata.ImportFromFileActivity"
+            android:configChanges="orientation|screenSize"
+            android:label="@string/import_name_list"
+            android:windowSoftInputMode="adjustResize"
+            />
+
+        <activity
+            android:name="com.randomappsinc.irandom.presentation.PresentationActivity"
+            android:configChanges="orientation|screenSize"
+            android:label=""
+            />
+
+        <activity
+            android:name="com.randomappsinc.irandom.premium.BuyPremiumActivity"
+            android:configChanges="orientation|screenSize"
+            android:label="@string/buy_premium_title"
+            />
+
+        <activity
+            android:name="com.randomappsinc.irandom.listpage.ListLandingPageActivity"
+            android:configChanges="orientation|screenSize"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateAlwaysHidden"
+            />
+
+        <activity
+            android:name="com.randomappsinc.irandom.editing.EditNameListActivity"
+            android:configChanges="orientation|screenSize"
+            android:windowSoftInputMode="stateAlwaysHidden"
+            />
+
+        <activity
+            android:name="com.randomappsinc.irandom.grouping.GroupMakingActivity"
+            android:configChanges="orientation|screenSize"
+            android:windowSoftInputMode="stateAlwaysHidden"
+            />
+
+        <activity
+            android:name="com.randomappsinc.irandom.choosing.NameChoosingActivity"
+            android:configChanges="orientation|screenSize"
+            android:windowSoftInputMode="stateAlwaysHidden"
+            />
+    </application>
+</manifest>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="photo_import_dialog_title">Photo Adding Options</string>
+    <string-array name="photo_import_options">
+        <item>Import from gallery</item>
+        <item>Take picture with camera</item>
+    </string-array>
+    <string name="take_photo_with_camera_failed">
+        Sorry, we are unable to work with your device\'s camera.
+    </string>
+    <string name="photo_processing_failure">We failed to process your photo.</string>
+    <string name="processing_your_photo">Processing your photo&#8230;</string>
+</resources>
